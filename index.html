@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>BITD E-SUMMIT 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap" rel="stylesheet">
+
+<style>
+html{scroll-behavior:smooth;}
+body{
+margin:0;
+font-family:'Orbitron',sans-serif;
+background:linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.9)),url("bg.jpg");
+background-size:110%;
+background-position:center;
+background-attachment:fixed;
+animation:zoom 40s infinite alternate;
+color:white;
+}
+@keyframes zoom{from{background-size:110%;}to{background-size:120%;}}
+
+section{padding:100px 10%;text-align:center;}
+
+.hero{height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;}
+
+.glitch{font-size:4rem;position:relative;}
+.glitch:before,.glitch:after{content:attr(data-text);position:absolute;left:0;}
+.glitch:before{color:#ff0080;animation:g1 2s infinite;}
+.glitch:after{color:#00f5ff;animation:g2 2s infinite;}
+@keyframes g1{25%{transform:translate(-2px,2px);}50%{transform:translate(-2px,-2px);}75%{transform:translate(2px,2px);}}
+@keyframes g2{25%{transform:translate(2px,-2px);}50%{transform:translate(2px,2px);}75%{transform:translate(-2px,-2px);}}
+
+button{padding:12px 30px;border:2px solid #00f5ff;background:transparent;color:#00f5ff;cursor:pointer;margin-top:20px;}
+button:hover{background:#00f5ff;color:black;}
+
+.section-title{color:#ff0080;font-size:2.5rem;margin-bottom:40px;}
+
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:25px;}
+
+.card{border:2px solid #00f5ff;padding:20px;background:rgba(0,0,0,0.6);cursor:pointer;}
+.card:hover{box-shadow:0 0 20px #00f5ff;transform:scale(1.05);transition:.3s;}
+
+.modal{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.9);justify-content:center;align-items:center;z-index:999;}
+.modal-content{background:black;padding:40px;border:2px solid #ff0080;max-width:500px;text-align:center;}
+.close{cursor:pointer;color:#ff0080;font-size:20px;margin-top:20px;}
+
+input,select{padding:10px;margin:10px;width:80%;background:black;border:1px solid #00f5ff;color:white;}
+
+footer{text-align:center;padding:40px;color:#777;}
+</style>
+</head>
+
+<body>
+
+<div class="hero">
+<h1 class="glitch" data-text="BITD E-SUMMIT 2026">BITD E-SUMMIT 2026</h1>
+<p>Entrepreneurship Development Cell, BITD presents</p>
+<button onclick="document.getElementById('events').scrollIntoView()">ENTER THE SUMMIT</button>
+</div>
+
+<section id="events">
+<h2 class="section-title">Event Matrix</h2>
+<div class="grid">
+<div class="card" onclick="openModal('Speaker Conclave')">Speaker Conclave</div>
+<div class="card" onclick="openModal('Startup Expo')">Startup Expo</div>
+<div class="card" onclick="openModal('100 Rs. Venture')">100 Rs. Venture</div>
+<div class="card" onclick="openModal('Who’s the CEO?')">Who’s the CEO?</div>
+<div class="card" onclick="openModal('Virtual Stock Exchange')">Virtual Stock Exchange</div>
+<div class="card" onclick="openModal('IPL Auction')">IPL Auction</div>
+<div class="card" onclick="openModal('Valo Showdown')">Valo Showdown</div>
+<div class="card" onclick="openModal('Treasure Hunt')">Treasure Hunt</div>
+<div class="card" onclick="openModal('Newspaper Activity')">Newspaper Activity</div>
+<div class="card" onclick="openModal('The Meme Game')">The Meme Game</div>
+</div>
+</section>
+
+<section>
+<h2 class="section-title">Our Speakers</h2>
+<div class="grid">
+<div class="card">Founder – Startup X</div>
+<div class="card">CEO – Tech Y</div>
+<div class="card">Investor – VC Firm Z</div>
+</div>
+</section>
+
+<section>
+<h2 class="section-title">Our Sponsors</h2>
+<div class="grid">
+<div class="card">Title Sponsor</div>
+<div class="card">Gold Sponsor</div>
+<div class="card">Community Partner</div>
+</div>
+</section>
+
+<section id="register">
+<h2 class="section-title">Register Now</h2>
+<form id="regForm">
+<input type="text" name="name" placeholder="Full Name" required><br>
+<input type="email" name="email" placeholder="Email" required><br>
+<input type="text" name="phone" placeholder="Phone Number" required><br>
+<select name="event">
+<option>Speaker Conclave</option>
+<option>Startup Expo</option>
+<option>100 Rs. Venture</option>
+<option>Who’s the CEO?</option>
+<option>Virtual Stock Exchange</option>
+<option>IPL Auction</option>
+<option>Valo Showdown</option>
+<option>Treasure Hunt</option>
+<option>Newspaper Activity</option>
+<option>The Meme Game</option>
+</select><br>
+<button type="submit">Submit</button>
+</form>
+<p id="response"></p>
+</section>
+
+<div class="modal" id="modal">
+<div class="modal-content">
+<h2 id="modalTitle"></h2>
+<p>Detailed event description will go here.</p>
+<div class="close" onclick="closeModal()">Close</div>
+</div>
+</div>
+
+<footer>Innovate Boldly. Execute Fearlessly.</footer>
+
+<script>
+function openModal(eventName){
+document.getElementById("modalTitle").innerText=eventName;
+document.getElementById("modal").style.display="flex";
+}
+function closeModal(){
+document.getE
